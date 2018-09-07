@@ -17,11 +17,8 @@ class MainActivity : AppCompatActivity() {
         initToolbar()
 
         btn.setOnClickListener() {
-            val intent = Intent(this, SettingsActivity::class.java)
-            // To pass any data to next activity
-            //intent.putExtra("keyIdentifier", value)
-            startActivity(intent)
-            //Toast.makeText(this@MainActivity, "Its toast!", Toast.LENGTH_SHORT).show()
+            StartSettings()
+            //Toast.makeText(this@MainActivity, "Start settings activity!", Toast.LENGTH_SHORT).show()
 
         }
 
@@ -30,8 +27,16 @@ class MainActivity : AppCompatActivity() {
     private fun initToolbar() {
         toolb = findViewById<Toolbar>(R.id.toolbar)
         toolb.setTitle("Toolbar Title")
-        toolb.setOnMenuItemClickListener { item -> TODO("делать что-то") }
+        toolb.setOnMenuItemClickListener { item -> StartSettings() }
         toolb.inflateMenu(R.menu.menu)
 
+    }
+
+    fun StartSettings(): Boolean {
+        val intent = Intent(this, SettingsActivity::class.java)
+        // To pass any data to next activity
+        //intent.putExtra("keyIdentifier", value)
+        startActivity(intent)
+        return true
     }
 }
