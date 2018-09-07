@@ -43,6 +43,13 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            android.R.id.home -> {  // самостоятельно обрабатываем нажатие кнопки Back
+                finish()
+                return true
+            }
+        }
+
         Log.e("error", item.toString())
         return super.onOptionsItemSelected(item)
     }
